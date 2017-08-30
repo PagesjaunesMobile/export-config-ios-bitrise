@@ -1,0 +1,42 @@
+title: "Xcode config exporter"
+summary: "Export Xcode build configuration"
+description: |-
+  This is a Step template.
+website: https://github.com/...
+source_code_url: https://github.com/...
+support_url: https://github.com/.../issues
+host_os_tags:
+  - osx-10.10
+project_type_tags:
+  - ios
+type_tags:
+  - script
+is_requires_admin_user: false
+is_always_run: false
+is_skippable: false
+dependencies:
+run_if: true
+inputs:
+  - export_project_path:
+    opts:
+      title: "Project file path"
+      is_required: true
+  - export_scheme:
+    opts:
+      title: "Targets names"
+      is_required: true
+  - export_config:
+    opts:
+      title: "Configuration name"
+      is_required: true
+  - export_path:
+    opts:
+      title: "Export file path"
+      is_required: true
+  - export_settings:
+    opts:
+      title: "Settings to export"
+      is_required: true
+outputs:
+- CONFIG_EXPORT_RESULTS: null
+- CONFIG_EXPORT_EXIT_CODE: null

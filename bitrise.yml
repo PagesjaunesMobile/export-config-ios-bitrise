@@ -1,0 +1,23 @@
+format_version: 1.1.0
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+
+workflows:
+  test:
+    steps:
+    - path::./:
+        title: Xcode build configuration exporter
+        inputs:
+        - export_project_path: PagesJaunes/PagesJaunes.xcodeproj
+        - export_scheme: PagesJaunes
+        - export_config: AppStore
+        - export_path: config_export.txt
+        - export_settings: ENABLE_CRASHLYTICS|EZEEWORLD_API_KEY|GIGYA_API_KEY|PJ_AT_INFO_SITE_ID|PJ_BUNDLE_BUILD|PJ_BUNDLE_ID|PJ_BUNDLE_VERSION|PJ_CI_SERVER_CONF|PJ_GOOGLE_PLUS_ID|PJ_FACEBOOK_ID|PJ_PDM_VERSION|GCC_OPTIMIZATION_LEVEL|SWIFT_OPTIMIZATION_LEVEL|OTHER_SWIFT_FLAGS|GCC_PREPROCESSOR_DEFINITIONS
+    - path::./:
+        run_if: '{{enveq "CONFIG_EXPORT_EXIT_CODE" "0"}}'
+        title: Xcode build configuration exporter
+        inputs:
+        - export_project_path: PagesJaunes/PagesJaunes.xcodeproj
+        - export_scheme: PagesJaunes
+        - export_config: AppStore
+        - export_path: config_export.txt
+        - export_settings: ENABLE_CRASHLYTICS|EZEEWORLD_API_KEY|GIGYA_API_KEY|PJ_AT_INFO_SITE_ID|PJ_BUNDLE_BUILD|PJ_BUNDLE_ID|PJ_BUNDLE_VERSION|PJ_CI_SERVER_CONF|PJ_GOOGLE_PLUS_ID|PJ_FACEBOOK_ID|PJ_PDM_VERSION|GCC_OPTIMIZATION_LEVEL|SWIFT_OPTIMIZATION_LEVEL|OTHER_SWIFT_FLAGS|GCC_PREPROCESSOR_DEFINITIONS
